@@ -1,0 +1,1319 @@
+#root {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --border-color: #ddd;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --container-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: #f5f7fa;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.app-content {
+  flex: 1;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.portfolio-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .portfolio-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolio-section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: var(--container-shadow);
+  padding: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.refresh-btn {
+  background-color: var(--secondary-color);
+}
+
+.refresh-btn:hover {
+  background-color: #5a6268;
+}
+
+.delete-btn {
+  background-color: var(--danger-color);
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 36px;
+  width: 36px;
+  margin-left: auto;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.stocks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stock-item {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 0.8fr 1.2fr 1.5fr 1.2fr 0.5fr;
+  grid-template-areas: 
+    "ticker shares price value percent target delete";
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 4px;
+  align-items: center;
+}
+
+.stock-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 100px;
+}
+
+.stock-field label {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+  color: var(--secondary-color);
+}
+
+.stock-field input {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.stock-field.value-field {
+  font-weight: bold;
+  grid-area: value;
+}
+
+.ticker-field {
+  grid-area: ticker;
+}
+
+.shares-field {
+  grid-area: shares;
+}
+
+.price-field {
+  grid-area: price;
+}
+
+.percent-field {
+  grid-area: percent;
+}
+
+.target-field {
+  grid-area: target;
+  align-items: center;
+}
+
+.target-field label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.delete-field {
+  grid-area: delete;
+  justify-content: flex-end;
+}
+
+.high-percentage {
+  color: var(--danger-color);
+}
+
+.medium-percentage {
+  color: var(--warning-color);
+}
+
+.portfolio-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summary-total {
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.summary-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-section h3 {
+  margin-bottom: 0.5rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Special styling for rows with percentage indicators */
+.summary-row .percent {
+  margin-left: 0.5rem;
+  color: var(--secondary-color);
+  font-size: 0.85rem;
+}
+
+/* Group value and percentage together on the right */
+.summary-row .value {
+  margin-left: auto;
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.value.above-target {
+  color: var(--danger-color);
+}
+
+.value.below-target {
+  color: var(--warning-color);
+}
+
+.value.balanced {
+  color: var(--success-color);
+}
+
+.rebalance-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.actions-flex-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.actions-header {
+  display: flex;
+  background-color: var(--light-color);
+  font-weight: bold;
+  padding: 0.75rem 1rem;
+}
+
+.actions-row {
+  display: flex;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.actions-row.buy {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+
+.actions-row.sell {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.col.ticker {
+  font-weight: bold;
+}
+
+.col.action {
+  justify-content: center;
+}
+
+span.buy {
+  color: var(--success-color);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+span.sell {
+  color: var(--danger-color);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+span.none {
+  color: var(--secondary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.no-actions {
+  text-align: center;
+  padding: 2rem;
+  color: var(--secondary-color);
+}
+
+/* App Tabs */
+.app-tabs {
+  display: flex;
+  background-color: var(--primary-color);
+  padding: 0 2rem;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border-bottom: 3px solid transparent;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  border-radius: 0;
+  position: relative;
+}
+
+.tab-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.tab-btn.active {
+  color: white;
+  border-bottom-color: white;
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: var(--primary-color);
+  border-radius: 50px;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+}
+
+/* Full width section */
+.portfolio-section.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Rebalance Plan */
+.rebalance-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.plan-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plan-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.plan-date {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.plan-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-filled {
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 0.85rem;
+}
+
+.plan-actions {
+  overflow-x: auto;
+}
+
+.actions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  table-layout: fixed;
+}
+
+.actions-table th,
+.actions-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.actions-table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+/* Column widths for the actions table */
+.actions-table th:nth-child(1),
+.actions-table td:nth-child(1) {
+  width: 10%;
+}
+
+.actions-table th:nth-child(2),
+.actions-table td:nth-child(2),
+.actions-table th:nth-child(3),
+.actions-table td:nth-child(3),
+.actions-table th:nth-child(5),
+.actions-table td:nth-child(5) {
+  width: 15%;
+}
+
+.actions-table th:nth-child(4),
+.actions-table td:nth-child(4) {
+  width: 10%;
+}
+
+.actions-table th:nth-child(6),
+.actions-table td:nth-child(6) {
+  width: 20%;
+}
+
+.actions-table th:nth-child(7),
+.actions-table td:nth-child(7) {
+  width: 15%;
+}
+
+.action-row.completed {
+  opacity: 0.75;
+}
+
+.action-row.buy {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.action-row.sell {
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.action.buy {
+  color: var(--success-color);
+}
+
+.action.sell {
+  color: var(--danger-color);
+}
+
+.completed-status {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--success-color);
+}
+
+.pending-status {
+  color: var(--warning-color);
+}
+
+.execute-btn {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.7rem;
+}
+
+.plan-footer {
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: 4px;
+}
+
+.plan-note {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.plan-footer.completed {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: var(--success-color);
+}
+
+.empty-plan {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-plan p {
+  color: var(--secondary-color);
+  margin-top: 0.5rem;
+}
+
+.create-plan-btn {
+  background-color: var(--success-color);
+}
+
+.create-plan-btn:hover {
+  background-color: #218838;
+}
+
+.create-plan-btn:disabled {
+  background-color: var(--secondary-color);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Transaction History */
+.transaction-history {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.transactions-table-container {
+  overflow-x: auto;
+}
+
+.transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.transactions-table th,
+.transactions-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.transactions-table th {
+  background-color: var(--light-color);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+}
+
+.transaction-row.buy {
+  background-color: rgba(40, 167, 69, 0.05);
+}
+
+.transaction-row.sell {
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.buy-action {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--success-color);
+}
+
+.sell-action {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--danger-color);
+}
+
+.transaction-history.empty {
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.empty-message {
+  color: var(--secondary-color);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.ticker {
+  font-weight: 500;
+}
+
+.total {
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .stock-item {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stock-item {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .app-tabs {
+    padding: 0;
+  }
+   
+  .tab-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+   
+  .actions-table,
+  .transactions-table {
+    font-size: 0.85rem;
+  }
+   
+  .actions-table th,
+  .actions-table td,
+  .transactions-table th,
+  .transactions-table td {
+    padding: 0.6rem 0.5rem;
+  }
+}
+
+.rebalance-note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.incomplete-actions {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: rgba(255, 193, 7, 0.1);
+  border-radius: 4px;
+  border-left: 4px solid var(--warning-color);
+}
+
+.incomplete-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--warning-color);
+  margin-bottom: 0.5rem;
+}
+
+.incomplete-actions p {
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.incomplete-actions ul {
+  list-style-type: none;
+  padding-left: 0.5rem;
+}
+
+.incomplete-actions li {
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--dark-color);
+}
+
+/* Portfolio Settings */
+.portfolio-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.settings-section {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.settings-section h3 {
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.setting-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.setting-input {
+  position: relative;
+}
+
+.setting-input input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input-suffix {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--secondary-color);
+  pointer-events: none;
+}
+
+.setting-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--secondary-color);
+  opacity: 0.7;
+}
+
+.save-btn.active {
+  background-color: var(--success-color);
+  opacity: 1;
+}
+
+.save-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.settings-info {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: var(--container-shadow);
+}
+
+.settings-info h3 {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.info-label {
+  color: var(--secondary-color);
+}
+
+.info-value {
+  font-weight: 600;
+}
+
+.info-value.negative {
+  color: var(--danger-color);
+}
+
+.budget-warning {
+  margin: 1.5rem 0;
+  padding: 0.75rem;
+  background-color: rgba(220, 53, 69, 0.1);
+  border-left: 4px solid var(--danger-color);
+  color: var(--danger-color);
+  font-size: 0.9rem;
+}
+
+.settings-note {
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 4px;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+/* Budget summary in portfolio summary */
+.summary-budget {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 4px;
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Progress bar for budget usage */
+.budget-progress {
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.budget-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Stock Percentage Bar component */
+.percentage-bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.percentage-label {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+.percentage-bar-outer {
+  height: 12px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+  margin-top: 3px;
+}
+
+.percentage-bar-inner {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+  min-width: 2px;
+}
+
+.percentage-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: right;
+  margin-top: 4px;
+  color: var(--dark-color);
+}
+
+/* Utility classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Portfolio allocation visualization */
+.allocation-distribution {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.allocation-distribution h3 {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.allocation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.allocation-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.allocation-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.allocation-header span:last-child {
+  font-weight: 600;
+}
+
+.budget-percentage-display {
+  width: 100%;
+  max-width: 200px;
+}
+
+.target-allocation-preview {
+  margin-top: 1rem;
+}
+
+.allocation-display {
+  display: flex;
+  height: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.allocation-bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  min-width: 80px;
+  transition: width 0.3s ease;
+}
+
+.allocation-bar.qqq {
+  background-color: var(--primary-color);
+}
+
+.allocation-bar.individual {
+  background-color: var(--secondary-color);
+}
+
+.allocation-summary {
+  margin-top: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.allocation-summary h4 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--dark-color);
+}
+
+.budget-percentage {
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Add styles for target weight input and normalized weight display */
+.normalized {
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.warning {
+  color: var(--warning-color);
+  font-style: italic;
+}
+
+/* Settings explanation styling */
+.settings-explanation {
+  margin: 1rem 0 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-left: 3px solid var(--primary-color);
+  border-radius: 0 4px 4px 0;
+  text-align: left;
+}
+
+.settings-explanation ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.settings-explanation li {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--dark-color);
+}
+
+.settings-explanation li:last-child {
+  margin-bottom: 0;
+}
+
+.stock-field input[name="targetWeight"] {
+  width: 70px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Add a section for individual stock target allocation */
+.summary-section {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.summary-section h3 {
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Cash Management */
+.cash-management {
+  background-color: var(--light-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cash-management-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.cash-management h3 {
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+}
+
+.cash-intro {
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 4px;
+  border-left: 3px solid var(--primary-color);
+}
+
+.cash-intro p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--dark-color);
+  font-size: 0.95rem;
+}
+
+.cash-position {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 4px;
+}
+
+.cash-label {
+  font-weight: 500;
+  color: var(--dark-color);
+}
+
+.cash-value {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--primary-color);
+}
+
+.cash-tabs {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.cash-tabs .tab-btn {
+  flex: 1;
+  border-radius: 4px 4px 0 0;
+  color: var(--dark-color);
+  background-color: #e9ecef;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.cash-tabs .tab-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.cash-form {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 0 0 4px 4px;
+  padding: 1rem;
+}
+
+.amount-field {
+  margin-bottom: 1rem;
+}
+
+.amount-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.amount-field input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.quick-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.quick-amounts button {
+  background-color: #e9ecef;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.quick-amounts button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.deposit-btn {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.deposit-btn:hover {
+  background-color: #218838;
+}
+
+.withdraw-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.withdraw-btn:hover {
+  background-color: #c82333;
+}
+
+.action-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: var(--danger-color);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.deposit-suggestion {
+  background-color: var(--success-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deposit-suggestion:hover {
+  background-color: #218838;
+}
