@@ -1,57 +1,61 @@
 # Portfolio Balancer
 
-A React TypeScript application for managing and rebalancing your investment portfolio between QQQ ETF, individual stocks, and cash.
+A modern React TypeScript application for managing and rebalancing investment portfolios with support for QQQ ETF, individual stocks, and cash position tracking.
 
 ## Features
 
-- Track your investment portfolio with QQQ, individual stocks, and cash
-- Configure custom target allocation percentages
-- Automatically calculate the current allocation percentages across your portfolio
-- Create and execute rebalance plans to achieve your target allocation
-- Track transaction history for all trades
-- Manage deposits and withdrawals with cash tracking
-- Persistent storage using browser's local storage
-- Modern, responsive user interface with tab-based navigation
+- **Portfolio Tracking**: Monitor your investments across QQQ ETF, individual stocks, and cash
+- **Custom Allocations**: Set and manage target allocation percentages for your portfolio
+- **Stock Weighting**: Assign custom weight percentages to individual stocks
+- **Rebalancing Tools**: Generate actionable rebalance plans with specific buy/sell actions
+- **Transaction History**: Keep a record of all executed trades
+- **Cash Management**: Track deposits, withdrawals, and cash position
+- **Data Persistence**: All data saved locally in your browser
 
-## Purpose
+## Screenshots
 
-This application helps investors maintain a balanced portfolio according to their specified allocation targets. By default, it helps maintain:
-- 50% of the portfolio value in QQQ (Invesco QQQ Trust, tracking the Nasdaq-100 Index)
-- 50% of the portfolio value in individual stocks
-- Optional cash allocation for greater flexibility
-
-As stock prices change over time, portfolio balance will drift away from the target allocations. This tool helps calculate exactly how many shares of each holding need to be bought or sold to restore the target balance.
+*[Screenshots will be added soon]*
 
 ## How It Works
 
-1. **Enter and manage your holdings:**
-   - QQQ shares and current price
-   - Individual stocks with ticker, shares, and current price
-   - Cash position
+### Portfolio Management
+- Track QQQ ETF shares and current market price
+- Add multiple individual stocks with their respective shares and prices
+- Monitor cash position separately from invested assets
+- View current vs. target allocations with visual percentage bars
 
-2. **View your portfolio summary:**
-   - Current total portfolio value
-   - Current value and percentage allocation across QQQ, individual stocks, and cash
-   - Target values for achieving balanced allocations
-   - Visual representation of current vs. target allocations
+### Rebalancing
+- Generate rebalance plans based on your target allocations
+- See exactly how many shares to buy or sell for each holding
+- Execute trades and track their completion
+- Maintain transaction history for all trades
 
-3. **Create and execute rebalance plans:**
-   - Generate a rebalance plan that suggests specific buy/sell actions
-   - Execute trades individually and track their completion
-   - Transaction history for all completed trades
+### Cash Operations
+- Track deposits and withdrawals to your portfolio
+- Automatically adjust cash position when executing trades
+- Set a target cash percentage to maintain as uninvested funds
 
-4. **Manage cash and settings:**
-   - Track deposits and withdrawals
-   - Adjust target allocation percentages
-   - Set custom weights for individual stocks
+## Technical Details
 
-## Installation and Setup
+### Built With
+- React 19
+- TypeScript
+- Vite for fast development and optimized builds
+- React Icons for UI elements
+- Local Storage for data persistence
+
+### Project Structure
+- `src/components`: UI components for different views
+- `src/types`: TypeScript interfaces and types
+- `src/utils`: Portfolio calculation and management utilities
+
+## Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v16 or higher)
 - npm or yarn
 
-### Running Locally
+### Installation
 
 1. Clone the repository:
    ```
@@ -81,20 +85,16 @@ This will create a production-ready build in the `dist` directory.
 
 ## Future Enhancements
 
-- Integration with stock market APIs to fetch real-time prices
-- Option to export/import portfolio data
-- Historical tracking of portfolio performance
-- Support for additional portfolio balancing strategies
-- Mobile app version
+- Integration with stock market APIs for real-time price updates
+- Portfolio performance analytics and visualizations
+- Data export/import functionality
+- Support for additional asset classes (bonds, crypto, etc.)
+- Dark mode and additional UI themes
 
-## Technologies Used
+## Contributing
 
-- React 19
-- TypeScript
-- Vite
-- React Icons
-- Local Storage for data persistence
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yulongyan99/portfolio-balancer/issues).
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the LICENSE file for details. 
